@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Feeding Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-input type="text" hidden [(ngModel)]="dataJadwal.nama"></ion-input>
+  <form [formGroup]="jadwalForm">
+    <ion-item>
+      <ion-label position="floating">Nama</ion-label>
+      <ion-input type="text" formControlName="nama" [(ngModel)]="dataJadwal.nama" placeholder="Nama Jadwal"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Jadwal</ion-label>
+      <ion-datetime display-format="HH:mm" picker-format="HH:mm" formControlName="jadwal_jam"></ion-datetime>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="floating">Info Description</ion-label>
+      <ion-input type="text" formControlName="info_description"></ion-input>
+    </ion-item> -->
+    <ion-button shape="round" color="primary" expand="block" [disabled]="!jadwalForm.valid" (click)="updatejadwal()">
+      Update
+    </ion-button>
+  </form>
+</ion-content>
